@@ -1,0 +1,15 @@
+.c-info {
+  max-width: 560px;
+}
+
+.c-info-lista {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.c-info-lista a {
+  color: var(--amarillo);
+  word-break: break-all;
+}

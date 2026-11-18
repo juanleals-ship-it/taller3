@@ -1,0 +1,105 @@
+.c-detalle-cabecera {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+@media (min-width: 700px) {
+  .c-detalle-cabecera {
+    grid-template-columns: 300px 1fr;
+    text-align: left;
+  }
+}
+
+/* Brillo de ki detrás del personaje */
+.c-detalle-aura {
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  border-radius: 24px;
+  background: radial-gradient(circle, rgba(255, 183, 3, 0.35), transparent 70%);
+}
+
+.c-detalle-aura img {
+  height: 300px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.5));
+}
+
+.c-detalle-etiquetas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0 14px;
+  justify-content: center;
+}
+
+@media (min-width: 700px) {
+  .c-detalle-etiquetas {
+    justify-content: flex-start;
+  }
+}
+
+.c-detalle-ki {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.c-detalle-ki .tarjeta {
+  padding: 10px;
+}
+
+.c-detalle-numero {
+  font-weight: 700;
+  color: var(--amarillo);
+  word-break: break-word;
+}
+
+.c-detalle-fav {
+  width: 100%;
+}
+
+.c-detalle-fav.activo {
+  background: var(--rojo);
+  box-shadow: 0 4px 0 #8f1c25;
+}
+
+.c-detalle-bloque {
+  margin-bottom: 16px;
+}
+
+.c-detalle-bloque.tarjeta {
+  padding: 16px;
+}
+
+.c-detalle-bloque h2 {
+  margin-bottom: 8px;
+}
+
+.c-detalle-planeta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  cursor: pointer;
+}
+
+.c-detalle-planeta img {
+  width: 96px;
+  height: 96px;
+  object-fit: cover;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.c-detalle-planeta h2 {
+  margin: 0;
+}
+
+.c-detalle-transformacion {
+  cursor: default;
+}

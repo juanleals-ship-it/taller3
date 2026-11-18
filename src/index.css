@@ -1,0 +1,181 @@
+/* Estilos generales de toda la app */
+:root {
+  --naranja: #f85b1a;
+  --amarillo: #ffb703;
+  --azul: #0b1d3a;
+  --azul-2: #13294b;
+  --azul-3: #1d3a6b;
+  --borde: #2a4a7e;
+  --texto: #f2f5fa;
+  --gris: #9fb0c8;
+  --rojo: #e63946;
+  --verde: #2ec27e;
+
+  font: 16px/1.45 system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: var(--texto);
+  background: var(--azul);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100svh;
+  background: radial-gradient(circle at 50% -10%, var(--azul-3), var(--azul) 55%) fixed;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Bangers', system-ui, sans-serif;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: var(--amarillo);
+}
+
+h1 {
+  font-size: 40px;
+  line-height: 1.1;
+  text-shadow: 2px 2px 0 var(--naranja);
+}
+
+h2 {
+  font-size: 26px;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Contenedor de cada pantalla (deja espacio abajo para el menú) */
+.pagina {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 20px 16px calc(110px + env(safe-area-inset-bottom));
+}
+
+.pagina-titulo {
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.pagina-sub {
+  text-align: center;
+  color: var(--gris);
+  margin-bottom: 16px;
+}
+
+.aviso {
+  text-align: center;
+  color: var(--gris);
+  padding: 40px 16px;
+}
+
+.boton {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 22px;
+  background: linear-gradient(180deg, #ff7a3d, var(--naranja));
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #b33a0b;
+}
+
+.boton:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #b33a0b;
+}
+
+.boton:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.boton-borde {
+  border: 2px solid var(--amarillo);
+  border-radius: 999px;
+  padding: 10px 20px;
+  background: transparent;
+  color: var(--amarillo);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.tarjeta {
+  background: var(--azul-2);
+  border: 1px solid var(--borde);
+  border-radius: 16px;
+}
+
+/* Rejilla de tarjetas de personajes (se usa en varias pantallas) */
+.rejilla {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.guerrero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 8px;
+  text-align: center;
+  cursor: pointer;
+  color: inherit;
+  transition: transform 0.15s, border-color 0.15s;
+}
+
+.guerrero:hover {
+  transform: translateY(-3px);
+  border-color: var(--naranja);
+}
+
+.guerrero img {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 8px rgba(0, 0, 0, 0.45));
+}
+
+.guerrero-nombre {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.guerrero-dato {
+  font-size: 13px;
+  color: var(--gris);
+}
+
+.etiqueta {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: rgba(255, 183, 3, 0.15);
+  color: var(--amarillo);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Botón para regresar a la pantalla anterior */
+.c-volver {
+  border: none;
+  background: none;
+  color: var(--amarillo);
+  font-weight: 700;
+  cursor: pointer;
+  padding: 4px 0;
+  margin-bottom: 8px;
+}

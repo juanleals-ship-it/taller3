@@ -1,0 +1,46 @@
+.c-buscador {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  background: var(--azul-2);
+  color: var(--texto);
+  font-size: 16px;
+}
+
+.c-buscador:focus {
+  outline: 2px solid var(--naranja);
+  border-color: transparent;
+}
+
+/* Botones de raza: se deslizan de lado en el celular */
+.c-filtros {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+  scrollbar-width: none;
+}
+
+.c-filtros::-webkit-scrollbar {
+  display: none;
+}
+
+.c-filtro {
+  flex-shrink: 0;
+  padding: 6px 14px;
+  border: 1px solid var(--borde);
+  border-radius: 999px;
+  background: var(--azul-2);
+  color: var(--gris);
+  cursor: pointer;
+}
+
+.c-filtro.activo {
+  background: var(--naranja);
+  border-color: var(--naranja);
+  color: #fff;
+  font-weight: 700;
+}

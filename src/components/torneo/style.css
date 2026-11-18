@@ -1,0 +1,608 @@
+.c-torneo {
+  max-width: 620px;
+}
+
+.espejo {
+  transform: scaleX(-1);
+}
+
+.c-torneo-historial {
+  text-align: center;
+  color: var(--amarillo);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* ---------- Elección del guerrero ---------- */
+.c-torneo-lista {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 8px;
+  padding-bottom: 90px; /* espacio para el panel fijo */
+}
+
+.c-candidato {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 4px;
+  color: var(--texto);
+  cursor: pointer;
+}
+
+.c-candidato img {
+  height: 90px;
+  object-fit: contain;
+}
+
+.c-candidato .guerrero-nombre {
+  font-size: 13px;
+}
+
+.c-candidato.elegido {
+  border-color: var(--amarillo);
+  background: rgba(255, 183, 3, 0.15);
+  box-shadow: 0 0 16px rgba(255, 183, 3, 0.35);
+}
+
+.c-poder {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--amarillo);
+}
+
+.c-torneo-panel {
+  position: fixed;
+  left: 50%;
+  bottom: calc(76px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  z-index: 5;
+  width: calc(100% - 24px);
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border: 2px solid var(--amarillo);
+  border-radius: 18px;
+  background: #0d2142;
+  box-shadow: 0 -6px 24px rgba(0, 0, 0, 0.5);
+}
+
+.c-torneo-panel img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
+.c-torneo-panel div {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ---------- Presentación ---------- */
+.c-presentacion,
+.c-fin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.c-ronda {
+  text-align: center;
+  font-family: 'Bangers', system-ui, sans-serif;
+  font-size: 24px;
+  letter-spacing: 2px;
+  color: var(--amarillo);
+}
+
+.c-versus {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.c-versus-lado img {
+  height: 200px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.6));
+  animation: entrar 0.6s ease-out both;
+}
+
+.c-versus-lado:last-child img {
+  animation-name: entrar-derecha;
+}
+
+.c-versus-vs {
+  font-family: 'Bangers', system-ui, sans-serif;
+  font-size: 54px;
+  color: var(--naranja);
+  text-shadow: 3px 3px 0 var(--amarillo);
+  animation: latido 1s ease-in-out infinite;
+}
+
+@keyframes entrar {
+  from {
+    transform: translateX(-60px);
+    opacity: 0;
+  }
+}
+
+@keyframes entrar-derecha {
+  from {
+    transform: translateX(60px) scaleX(-1);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(-1);
+  }
+}
+
+@keyframes latido {
+  50% {
+    transform: scale(1.15);
+  }
+}
+
+.c-pelear {
+  width: 100%;
+  max-width: 320px;
+  font-size: 20px;
+}
+
+.c-rendirse {
+  border: none;
+  background: none;
+  color: var(--gris);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.c-torneo-nuevo {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(46, 194, 126, 0.15);
+  color: var(--verde);
+  font-weight: 700;
+}
+
+/* ---------- Combate ---------- */
+.c-combate {
+  padding-top: 12px;
+}
+
+.c-marcadores {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 8px 0;
+}
+
+.c-marcador {
+  padding: 8px 10px;
+}
+
+.c-marcador.derecha {
+  text-align: right;
+}
+
+.c-marcador-nombre {
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.c-marcador-dato {
+  font-size: 11px;
+  color: var(--gris);
+  margin-bottom: 2px;
+}
+
+.c-barra {
+  height: 10px;
+  margin-top: 4px;
+  border-radius: 999px;
+  background: var(--azul);
+  overflow: hidden;
+}
+
+.c-marcador.derecha .c-barra {
+  transform: scaleX(-1); /* la barra del rival se vacía hacia el otro lado */
+}
+
+.c-barra div {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.5s ease-out;
+}
+
+.c-barra.vida div {
+  background: linear-gradient(90deg, #26a269, var(--verde));
+}
+
+.c-barra.vida div.bajo {
+  background: linear-gradient(90deg, #a51d2d, var(--rojo));
+}
+
+.c-barra.ki {
+  height: 6px;
+}
+
+.c-barra.ki div {
+  background: linear-gradient(90deg, var(--amarillo), #fff3c4);
+}
+
+/* Arena donde están los dos luchadores */
+.c-arena {
+  position: relative;
+  height: 230px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 6% 18px;
+  border-radius: 20px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 100%, rgba(0, 0, 0, 0.45) 0 30%, transparent 31%),
+    linear-gradient(180deg, #2a5298 0%, #6a8fd6 55%, #c9a66b 56%, #9c7a45 100%);
+}
+
+.c-arena.destello::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  animation: destello 0.6s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes destello {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.c-sprite {
+  position: relative;
+  width: 42%;
+  height: 190px;
+  display: grid;
+  place-items: end center;
+}
+
+.c-sprite img {
+  max-height: 190px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.5));
+}
+
+/* Escudo cuando está defendiendo */
+.c-sprite.guardia::before {
+  content: '';
+  position: absolute;
+  inset: 10px -6px 0;
+  border-radius: 50%;
+  border: 3px solid rgba(120, 200, 255, 0.9);
+  background: rgba(120, 200, 255, 0.15);
+  box-shadow: 0 0 18px rgba(120, 200, 255, 0.7);
+}
+
+.c-sprite.embiste.jugador {
+  animation: embiste-derecha 0.5s ease-in-out;
+}
+
+.c-sprite.embiste.rival {
+  animation: embiste-izquierda 0.5s ease-in-out;
+}
+
+@keyframes embiste-derecha {
+  40% {
+    transform: translateX(28%);
+  }
+}
+
+@keyframes embiste-izquierda {
+  40% {
+    transform: translateX(-28%);
+  }
+}
+
+.c-sprite.golpeado {
+  animation: sacudir 0.45s 0.2s ease-in-out;
+}
+
+.c-sprite.golpeado img {
+  animation: rojo 0.45s 0.2s;
+}
+
+.c-sprite.fuerte {
+  animation-duration: 0.7s;
+}
+
+@keyframes sacudir {
+  20%,
+  60% {
+    transform: translateX(-8px);
+  }
+  40%,
+  80% {
+    transform: translateX(8px);
+  }
+}
+
+@keyframes rojo {
+  30% {
+    filter: drop-shadow(0 0 12px #ff3b3b) brightness(1.6) sepia(1) hue-rotate(-50deg) saturate(5);
+  }
+}
+
+.c-sprite.esquiva {
+  animation: esquivar 0.5s 0.15s ease-in-out;
+}
+
+@keyframes esquivar {
+  50% {
+    transform: translateY(-40px);
+    opacity: 0.5;
+  }
+}
+
+/* Aura de ki al cargar */
+.c-sprite.carga img {
+  animation: aura 0.9s ease-in-out;
+}
+
+@keyframes aura {
+  50% {
+    filter: drop-shadow(0 0 10px #ffd60a) drop-shadow(0 0 24px #ffb703);
+  }
+}
+
+.c-sprite.transforma img {
+  animation: transformar 1s ease-out;
+}
+
+@keyframes transformar {
+  0% {
+    filter: brightness(4) drop-shadow(0 0 30px #fff3c4);
+    transform: scale(1.25);
+  }
+  100% {
+    filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.5));
+  }
+}
+
+.c-sprite.rival.transforma img {
+  animation-name: transformar-rival;
+}
+
+@keyframes transformar-rival {
+  0% {
+    filter: brightness(4) drop-shadow(0 0 30px #fff3c4);
+    transform: scale(1.25) scaleX(-1);
+  }
+  100% {
+    transform: scaleX(-1);
+    filter: drop-shadow(0 8px 6px rgba(0, 0, 0, 0.5));
+  }
+}
+
+/* Bola de energía que cruza la arena */
+.c-proyectil {
+  position: absolute;
+  top: 45%;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0 25%, #8ad8ff 45%, rgba(58, 134, 255, 0.4) 70%, transparent 72%);
+  box-shadow: 0 0 22px #8ad8ff;
+  pointer-events: none;
+}
+
+.c-proyectil.grande {
+  width: 70px;
+  height: 70px;
+  top: 35%;
+  background: radial-gradient(circle, #fff 0 25%, #ffe066 45%, rgba(255, 183, 3, 0.4) 70%, transparent 72%);
+  box-shadow: 0 0 40px #ffd60a;
+}
+
+.c-proyectil.desde-jugador {
+  animation: disparo-derecha 0.5s ease-in forwards;
+}
+
+.c-proyectil.desde-rival {
+  animation: disparo-izquierda 0.5s ease-in forwards;
+}
+
+@keyframes disparo-derecha {
+  from {
+    left: 25%;
+    opacity: 1;
+  }
+  to {
+    left: 72%;
+    opacity: 0;
+  }
+}
+
+@keyframes disparo-izquierda {
+  from {
+    left: 65%;
+    opacity: 1;
+  }
+  to {
+    left: 15%;
+    opacity: 0;
+  }
+}
+
+/* Número de daño que sube */
+.c-numero {
+  position: absolute;
+  top: 20px;
+  font-family: 'Bangers', system-ui, sans-serif;
+  font-size: 34px;
+  color: #fff;
+  text-shadow:
+    2px 2px 0 var(--rojo),
+    -1px -1px 0 var(--rojo);
+  animation: subir 1s 0.2s ease-out both;
+  pointer-events: none;
+}
+
+.c-numero.en-rival {
+  right: 18%;
+}
+
+.c-numero.en-jugador {
+  left: 18%;
+}
+
+.c-numero.critico {
+  font-size: 46px;
+  color: var(--amarillo);
+}
+
+.c-numero.fallo {
+  font-size: 24px;
+  text-shadow: 2px 2px 0 var(--azul);
+}
+
+@keyframes subir {
+  from {
+    transform: translateY(20px) scale(0.6);
+    opacity: 0;
+  }
+  30% {
+    transform: translateY(0) scale(1.1);
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+}
+
+/* Registro de lo que pasó */
+.c-registro {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  min-height: 92px;
+  font-size: 14px;
+}
+
+.c-registro li {
+  padding: 3px 10px;
+  border-left: 3px solid var(--borde);
+  margin-bottom: 3px;
+  color: var(--gris);
+}
+
+.c-registro li:first-child {
+  color: var(--texto);
+  font-weight: 600;
+}
+
+.c-registro li.jugador {
+  border-color: var(--verde);
+}
+
+.c-registro li.rival {
+  border-color: var(--rojo);
+}
+
+.c-registro li.arbitro {
+  border-color: var(--amarillo);
+  color: var(--amarillo);
+}
+
+/* Botones de acción */
+.c-acciones {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.c-accion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 8px 4px;
+  border: 2px solid var(--borde);
+  border-radius: 14px;
+  background: var(--azul-2);
+  color: var(--texto);
+  cursor: pointer;
+  transition: transform 0.1s;
+}
+
+.c-accion:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.c-accion:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.c-accion.definitivo:not(:disabled),
+.c-accion.transformar:not(:disabled) {
+  border-color: var(--amarillo);
+  box-shadow: 0 0 14px rgba(255, 183, 3, 0.45);
+}
+
+.c-accion-icono {
+  font-size: 22px;
+}
+
+.c-accion-nombre {
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.c-accion-ayuda {
+  font-size: 11px;
+  color: var(--gris);
+}
+
+.c-turno {
+  margin-top: 10px;
+  text-align: center;
+  color: var(--gris);
+  font-size: 14px;
+}
+
+/* ---------- Fin ---------- */
+.c-fin-icono {
+  font-size: 72px;
+  animation: latido 1.2s ease-in-out infinite;
+}
+
+.c-fin-imagen {
+  height: 200px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 24px rgba(255, 183, 3, 0.5));
+}
+
+.c-fin .boton,
+.c-fin .boton-borde {
+  width: 100%;
+  max-width: 320px;
+}

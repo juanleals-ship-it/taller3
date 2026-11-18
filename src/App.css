@@ -1,0 +1,50 @@
+/* Menú inferior */
+.c-menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  background: #081428;
+  border-top: 3px solid var(--naranja);
+  padding: 6px 4px calc(6px + env(safe-area-inset-bottom));
+}
+
+.c-menu-items {
+  display: flex;
+  width: 100%;
+  max-width: 640px;
+}
+
+.c-menu a {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  padding: 4px 0;
+  border-radius: 12px;
+  color: var(--gris);
+  font-size: 11px;
+  text-decoration: none;
+}
+
+.c-menu-icono {
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.c-menu a.active {
+  color: var(--amarillo);
+  background: rgba(248, 91, 26, 0.18);
+}
+
+.c-cargando {
+  min-height: 100svh;
+  display: grid;
+  place-items: center;
+  color: var(--gris);
+}

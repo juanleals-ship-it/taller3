@@ -1,0 +1,38 @@
+.c-juegos {
+  max-width: 560px;
+}
+
+.c-juegos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.c-juego {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  cursor: pointer;
+  transition: transform 0.15s, border-color 0.15s;
+}
+
+.c-juego:hover {
+  transform: translateY(-3px);
+  border-color: var(--naranja);
+}
+
+.c-juego h2 {
+  margin-bottom: 4px;
+}
+
+.c-juego-icono {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  display: grid;
+  place-items: center;
+  border-radius: 18px;
+  background: linear-gradient(160deg, #ff7a3d, var(--naranja));
+  font-size: 32px;
+}

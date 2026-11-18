@@ -1,0 +1,21 @@
+.c-fav {
+  position: relative;
+}
+
+.c-fav-quitar {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(230, 57, 70, 0.85);
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.c-fav-ir {
+  margin-top: 16px;
+}

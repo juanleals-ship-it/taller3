@@ -1,0 +1,82 @@
+.c-login {
+  min-height: 100svh;
+  max-width: 420px;
+  margin: 0 auto;
+  padding: 32px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Esfera del dragón dibujada con CSS */
+.c-login-esfera {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 35% 30%, #fff3c4 0 8%, #ffb703 35%, #f85b1a 100%);
+  box-shadow: 0 0 40px rgba(255, 183, 3, 0.45);
+  animation: flotar 3s ease-in-out infinite;
+}
+
+.c-login-esfera span {
+  color: var(--rojo);
+  font-size: 40px;
+  line-height: 1;
+}
+
+@keyframes flotar {
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.c-login-marca {
+  margin-top: 16px;
+  font-size: 44px;
+}
+
+.c-login-lema {
+  color: var(--gris);
+  margin-bottom: 24px;
+}
+
+.c-login-form {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.c-login-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  background: var(--azul);
+  color: var(--texto);
+  font-size: 16px;
+}
+
+.c-login-input:focus {
+  outline: 2px solid var(--naranja);
+  border-color: transparent;
+}
+
+.c-login-error {
+  color: #ff8a8a;
+  font-size: 15px;
+}
+
+.c-login-cambiar {
+  margin-top: 16px;
+  border: none;
+  background: none;
+  color: var(--amarillo);
+  text-decoration: underline;
+  cursor: pointer;
+}

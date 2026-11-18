@@ -1,0 +1,82 @@
+.c-perfil {
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.c-perfil-avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-bottom: 6px;
+  background: radial-gradient(circle at 35% 30%, #fff3c4 0 8%, #ffb703 40%, #f85b1a 100%);
+  color: var(--azul);
+  font-family: 'Bangers', system-ui, sans-serif;
+  font-size: 44px;
+  box-shadow: 0 0 30px rgba(255, 183, 3, 0.4);
+}
+
+.c-perfil-form {
+  width: 100%;
+  margin-top: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.c-perfil-fila {
+  display: flex;
+  gap: 8px;
+}
+
+.c-perfil-fila input {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 14px;
+  border: 1px solid var(--borde);
+  border-radius: 12px;
+  background: var(--azul);
+  color: var(--texto);
+}
+
+.c-perfil-stats {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin: 16px 0;
+}
+
+.c-perfil-stats .tarjeta {
+  padding: 12px 6px;
+}
+
+.c-perfil-numero {
+  font-family: 'Bangers', system-ui, sans-serif;
+  font-size: 34px;
+  line-height: 1;
+  color: var(--amarillo);
+}
+
+.c-perfil-salir {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid var(--rojo);
+  border-radius: 999px;
+  background: transparent;
+  color: #ff8a8a;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.c-perfil-nube {
+  font-size: 13px;
+  color: var(--verde);
+}
